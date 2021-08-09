@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    async function getRequest() {
+            try {
+                let res = await fetch('https://restcountries.eu/rest/v2/all');
+
+                let data = await res.json();
+
+                // data.forEach((country)=>{
+
+                //     console.log(country.name, country.capital)
+
+                // })
+
+                /*
+                     data.forEach(({name, capital}) => {
+
+                    console.log(name, capital)
+                        
+                })
+                */
+
+
+             data.forEach(({ name, languages: [{name: lang}] }) => {
+
+             console.log(name, lang)
+                    // console.log(languages)
+
+                })
+                //console.log(data);
+            }
+            catch (e) {
+                console.log('e:', e)
+            }
+
+        }
+
+        getRequest();
+
+        //1. to figure out datatypes
+        //2. mimic the structure
+</script>
